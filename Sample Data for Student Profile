@@ -1,0 +1,23 @@
+[
+  {
+    "firstName": "Aris",
+    "gender": "Male",
+    "lastName": "Nazareno",
+    "studentNumber": 1,
+    "yearLevel": 5
+  },
+  {
+    "firstName": "Lara",
+    "gender": "Female",
+    "lastName": "Madamba",
+    "studentNumber": 2,
+    "yearLevel": 3
+  },
+  {
+    "firstName": "Theo",
+    "gender": "Male",
+    "lastName": "Nazareno",
+    "studentNumber": 3,
+    "yearLevel": 4
+  }
+]

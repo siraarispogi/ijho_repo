@@ -1,0 +1,20 @@
+[
+  {
+    "description": "Math is good",
+    "status": "Active",
+    "subjectCode": 1,
+    "subjectName": "Math"
+  },
+  {
+    "description": "Anatomy",
+    "status": "Inactive",
+    "subjectCode": 2,
+    "subjectName": "Science"
+  },
+  {
+    "description": "Sibika at Kultura",
+    "status": "Active",
+    "subjectCode": 3,
+    "subjectName": "Hekasi"
+  }
+]

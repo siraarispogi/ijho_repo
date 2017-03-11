@@ -1,15 +1,35 @@
 package org.aon.rest.enrollment.model;
 
+import java.util.Map;
+
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 @XmlRootElement
 public class StudentProfileModel {
-
 	private String firstName;
 	private String lastName;
 	private String gender;
 	private int yearLevel;
+	private int studentNumber;
 	
+
+
+	public StudentProfileModel() {
+		// TODO Auto-generated constructor stub
+	}
+	
+//	/**
+//	 * Use for initializing the model
+//	 * */
+//	
+//	public StudentProfileModel(String firstName, String lastName, String gender, int yearLevel, int studentNumber) {
+//		this.firstName = firstName;
+//		this.lastName = lastName;
+//		this.gender = gender;
+//		this.yearLevel = yearLevel;
+//		this.studentNumber = studentNumber;		
+//	}
 	
 	public String getFirstName() {
 		return firstName;
@@ -34,6 +54,14 @@ public class StudentProfileModel {
 	}
 	public void setYearLevel(int yearLevel) {
 		this.yearLevel = yearLevel;
+	}
+
+	public int getStudentNumber() {
+		return studentNumber;
+	}
+
+	public void setStudentNumber(int studentNumber) {
+		this.studentNumber = studentNumber;
 	}
 	
 }
