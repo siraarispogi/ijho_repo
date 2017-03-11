@@ -15,9 +15,5 @@ import org.aon.rest.enrollment.model.StudentProfileModel;
 @Produces(value = {MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML} )
 public class StudentProfile {
 	
-	@GET
-	public List<StudentProfileModel> getAllStudentProfile(){
-		
-	}
 
 }
