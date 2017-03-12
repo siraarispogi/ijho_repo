@@ -17,6 +17,7 @@ public class SubjectCatalogModel {
 	@XmlTransient
 	private List<SubjectCatalogModel> listOfSubject;
 	
+
 	public List<SubjectCatalogModel> getListOfSubject() {
 		return listOfSubject;
 	}
@@ -28,12 +29,6 @@ public class SubjectCatalogModel {
 	public SubjectCatalogModel() {
 	}
 	
-//	public SubjectCatalogModel(int subjetCode, String subjectname, String description, String status) {
-//		this.subjectCode = subjetCode;
-//		this.subjectName = subjectname;
-//		this.description = description;
-//		this.status = status;
-//	}
 	
 	public int getSubjectCode() {
 		return subjectCode;

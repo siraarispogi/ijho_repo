@@ -16,22 +16,6 @@ public class StudentEnrollmentService {
 	//storage for student enrolled subject
 	private  Map<Integer, List<SubjectCatalogModel>> enrolledSubject = DatabaseClass.getEnrolledSubject();
 	
-//	//initialization
-//	public StudentEnrollmentService() {
-//		List<SubjectCatalogModel> model = new ArrayList<>();
-//		SubjectCatalogModel math = new SubjectCatalogModel(1, "Math", "Math is good", "Active");
-//		SubjectCatalogModel science = new SubjectCatalogModel(2, "Science", "Anatomy", "Inactive");
-//		model.add(math);
-//		model.add(science);
-//		enrolledSubject.put(1, model);
-//		List<SubjectCatalogModel> model1 = new ArrayList<>();
-//		SubjectCatalogModel math1 = new SubjectCatalogModel(3, "Hekasi", "Sibika at Kultura", "Active");
-//		SubjectCatalogModel science1 = new SubjectCatalogModel(4, "Java", "Java", "Inactive");
-//		model1.add(math1);
-//		model1.add(science1);
-//		enrolledSubject.put(2, model1);
-//	}
-	
 	public StudentEnrollmentModel getEnrolledSubject(int studentNumber) {
 		StudentEnrollmentModel model = new StudentEnrollmentModel();
 		model.setEnrolledSubject(enrolledSubject.get(studentNumber));
@@ -61,10 +45,6 @@ public class StudentEnrollmentService {
 
 	public  StudentEnrollmentModel removeSubject(int studentNumber, int subjectCode){
 		List<SubjectCatalogModel> existingSubject = enrolledSubject.get(studentNumber);
-		
-		if(existingSubject==null){
-			return null;
-		}
 		
 		int indexOfSubject = -1;
 		for(int x=0; x<existingSubject.size(); x++){

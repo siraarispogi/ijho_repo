@@ -11,9 +11,12 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
 import org.aon.rest.enrollment.model.SubjectCatalogModel;
 import org.aon.rest.enrollment.service.SubjectCatalogService;
+import org.aon.rest.enrollment.validator.SubjectCatalogValidator;
 
 @Path("/subject")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -21,9 +24,11 @@ import org.aon.rest.enrollment.service.SubjectCatalogService;
 public class SubjectCatalogResource {
 	
 	private SubjectCatalogService subjectCatalogService = new SubjectCatalogService();
+	private SubjectCatalogValidator validator = new SubjectCatalogValidator();
 	
 	@GET
 	public List<SubjectCatalogModel> getAllSubjectInCatalog(@QueryParam("status") String status){
+		validator.checkSubjectInCatalog(status);
 		if(status!=null){
 			return subjectCatalogService.getSubjectbyStatus(status);
 		}else{
@@ -32,18 +37,26 @@ public class SubjectCatalogResource {
 	}
 	
 	@POST
-	public void addSubjectInCatalog(SubjectCatalogModel model){
+	public Response addSubjectInCatalog(SubjectCatalogModel model){
+		validator.checkInput(model);
 		for(SubjectCatalogModel mod : model.getListOfSubject()){
 			subjectCatalogService.addSubjectInCatalog(mod);
 		}
-	}
+		
+		return Response.status(Status.CREATED).type(MediaType.APPLICATION_JSON).build();
+	}	
 	
 	@PUT
 	@Path("/{subjectCode}")
-	public SubjectCatalogModel updateSubjectInCatalog(@PathParam("subjectCode") int subjectCode, 
+	public Response updateSubjectInCatalog(@PathParam("subjectCode") int subjectCode, 
 														SubjectCatalogModel model){
+		validator.checkSubjectIfEnrolled(subjectCode);
 		model.setSubjectCode(subjectCode);
-		return subjectCatalogService.updateSubjectInCatalog(subjectCode, model);
+		SubjectCatalogModel updatedModel = subjectCatalogService.updateSubjectInCatalog(subjectCode, model);
+		return Response.status(Status.ACCEPTED)
+				.type(MediaType.APPLICATION_JSON)
+				.entity(updatedModel)
+				.build();
 	}
 	
 }

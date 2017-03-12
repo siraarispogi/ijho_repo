@@ -13,12 +13,6 @@ public class SubjectCatalogService {
 	
 	private List<Integer> subjectEnrolledByStudent = DatabaseClass.getSubjectEnrolledByStudent();
 	
-//	public SubjectCatalogService() {
-//		subjectList.put(1, new SubjectCatalogModel(1, "Math", "Math is good", "Active"));
-//		subjectList.put(2, new SubjectCatalogModel(2, "Science", "Anatomy", "Inactive"));
-//		subjectList.put(3, new SubjectCatalogModel(3, "Hekasi", "Sibika at Kultura", "Active"));
-//	}
-
 	public List<SubjectCatalogModel> getAllSubjectInCatalog() {
 		return new ArrayList<SubjectCatalogModel>(subjectList.values());
 	}
@@ -40,9 +34,6 @@ public class SubjectCatalogService {
 	}
 
 	public SubjectCatalogModel updateSubjectInCatalog(int subjectCode, SubjectCatalogModel model) {
-		if(subjectEnrolledByStudent.contains(subjectCode)){
-			return null;
-		}
 		subjectList.put(subjectCode, model);
 		return model;
 	}
@@ -54,6 +45,14 @@ public class SubjectCatalogService {
 
 	public void addSubjectEnrolledByStudent(int subjectCode){
 		subjectEnrolledByStudent.add(subjectCode);
+	}
+	
+	public boolean checkSubjectInEnrolledBySubject(int subjectCode){
+		boolean result = false;
+		if(subjectEnrolledByStudent.contains(subjectCode)){
+			result = true;
+		}
+		return result;
 	}
 	
 }

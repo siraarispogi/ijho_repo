@@ -19,18 +19,6 @@ public class StudentProfileModel {
 		// TODO Auto-generated constructor stub
 	}
 	
-//	/**
-//	 * Use for initializing the model
-//	 * */
-//	
-//	public StudentProfileModel(String firstName, String lastName, String gender, int yearLevel, int studentNumber) {
-//		this.firstName = firstName;
-//		this.lastName = lastName;
-//		this.gender = gender;
-//		this.yearLevel = yearLevel;
-//		this.studentNumber = studentNumber;		
-//	}
-	
 	public String getFirstName() {
 		return firstName;
 	}
